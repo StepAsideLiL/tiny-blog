@@ -29,8 +29,8 @@ function Icon() {
         fill="none"
         // stroke="#fff"
         stroke={theme === "light" ? "#000" : "#fff"}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <path d="m40.5 42.5h-33a2.0059 2.0059 0 0 1 -2-2v-33a2.0059 2.0059 0 0 1 2-2h33a2.0059 2.0059 0 0 1 2 2v33a2.0059 2.0059 0 0 1 -2 2z" />
         <path d="m10.5 15.6028h11.1263" />
