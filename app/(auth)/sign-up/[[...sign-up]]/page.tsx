@@ -1,19 +1,14 @@
-"use client";
-
 import { SignUp } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { useTheme } from "next-themes";
 
 export default function SignUpPage() {
-  const { theme } = useTheme();
-
   return (
-    <>
+    <main className="min-h-screen flex justify-center items-center">
       <SignUp
         appearance={{
-          baseTheme: theme === "dark" ? dark : undefined,
+          baseTheme: dark,
         }}
       />
-    </>
+    </main>
   );
 }

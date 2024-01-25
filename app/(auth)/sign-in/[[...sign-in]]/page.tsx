@@ -1,19 +1,14 @@
-"use client";
-
 import { SignIn } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { useTheme } from "next-themes";
 
 export default function SignInPage() {
-  const { theme } = useTheme();
-
   return (
-    <>
+    <main className="min-h-screen flex justify-center items-center">
       <SignIn
         appearance={{
-          baseTheme: theme === "dark" ? dark : undefined,
+          baseTheme: dark,
         }}
       />
-    </>
+    </main>
   );
 }
