@@ -9,6 +9,8 @@ export default function UserAvatar() {
         appearance={{
           baseTheme: dark,
         }}
+        userProfileMode="navigation"
+        userProfileUrl={`/profile`}
       />
     </>
   );
