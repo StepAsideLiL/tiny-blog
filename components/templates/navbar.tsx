@@ -21,10 +21,6 @@ export default function Navbar() {
       </div>
 
       <div className="h-8 flex items-center gap-2">
-        {/* <ModeToggle />
-
-        <Separator orientation="vertical" /> */}
-
         {user.userId ? (
           <UserAvatar />
         ) : (
