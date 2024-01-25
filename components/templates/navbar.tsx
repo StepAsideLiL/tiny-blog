@@ -1,6 +1,4 @@
 import Logo from "@/components/uis/logo";
-import { ModeToggle } from "./dark-mode";
-import { Separator } from "@/components/shadcn-ui/separator";
 import { Button } from "@/components/shadcn-ui/button";
 import {
   DropdownMenu,
@@ -23,9 +21,9 @@ export default function Navbar() {
       </div>
 
       <div className="h-8 flex items-center gap-2">
-        <ModeToggle />
+        {/* <ModeToggle />
 
-        <Separator orientation="vertical" />
+        <Separator orientation="vertical" /> */}
 
         {user.userId ? (
           <UserAvatar />
