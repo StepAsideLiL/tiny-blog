@@ -12,7 +12,7 @@ import { auth } from "@clerk/nextjs";
 import UserAvatar from "./user-avatar";
 
 export default function Navbar() {
-  const user = auth();
+  const { userId } = auth();
 
   return (
     <header className="py-5 container flex justify-between items-center">
@@ -21,7 +21,7 @@ export default function Navbar() {
       </div>
 
       <div className="h-8 flex items-center gap-2">
-        {user.userId ? (
+        {userId ? (
           <UserAvatar />
         ) : (
           <DropdownMenu>
