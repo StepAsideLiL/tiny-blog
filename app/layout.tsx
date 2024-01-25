@@ -6,7 +6,7 @@ import Navbar from "@/components/templates/navbar";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Tiny Blog",
+    template: "%s - Tiny Blog",
     default: "Tiny Blog",
   },
   description: "Write small blog",
