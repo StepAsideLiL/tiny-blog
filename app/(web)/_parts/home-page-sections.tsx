@@ -1,3 +1,5 @@
+import BlogForm from "@/components/form/blog-form";
+
 export default async function HomePageSections() {
   const data = await dataDelay();
 
@@ -7,7 +9,11 @@ export default async function HomePageSections() {
       <section className="col-span-3">Profile</section>
 
       {/* Tyni Blog List */}
-      <section className="col-span-6">Blog List</section>
+      <section className="col-span-6">
+        <BlogForm />
+
+        <section>Blog List</section>
+      </section>
 
       {/* Blog info and Reply */}
       <section className="col-span-3">Reply</section>
