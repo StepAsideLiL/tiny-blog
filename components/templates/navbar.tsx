@@ -15,38 +15,40 @@ export default function Navbar() {
   const { userId } = auth();
 
   return (
-    <header className="py-5 container flex justify-between items-center">
-      <div>
-        <Logo variants="link" />
-      </div>
+    <div className="border-b">
+      <header className="py-3 container flex justify-between items-center">
+        <div>
+          <Logo variants="link" />
+        </div>
 
-      <div className="h-8 flex items-center gap-2">
-        {userId ? (
-          <UserAvatar />
-        ) : (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="icon">
-                <PersonIcon />
-              </Button>
-            </DropdownMenuTrigger>
+        <div className="h-8 flex items-center gap-2">
+          {userId ? (
+            <UserAvatar />
+          ) : (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <PersonIcon />
+                </Button>
+              </DropdownMenuTrigger>
 
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem asChild>
-                <Link href={"/sign-in"} className="cursor-pointer">
-                  Sign In
-                </Link>
-              </DropdownMenuItem>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem asChild>
+                  <Link href={"/sign-in"} className="cursor-pointer">
+                    Sign In
+                  </Link>
+                </DropdownMenuItem>
 
-              <DropdownMenuItem asChild>
-                <Link href={"/sign-up"} className="cursor-pointer">
-                  Create an account
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )}
-      </div>
-    </header>
+                <DropdownMenuItem asChild>
+                  <Link href={"/sign-up"} className="cursor-pointer">
+                    Create an account
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
+        </div>
+      </header>
+    </div>
   );
 }
