@@ -9,3 +9,26 @@ datasource db {
   provider = "cockroachdb"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id String @id @unique @default(cuid())
+
+  username String @unique
+  email    String @unique
+  name     String @default("")
+  bio      String @default("")
+
+  blogs Blog[]
+}
+
+model Blog {
+  id String @id @unique @default(cuid())
+
+  userId String
+  User   User   @relation(fields: [userId], references: [id])
+
+  body String @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
