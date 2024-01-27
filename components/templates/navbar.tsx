@@ -15,7 +15,7 @@ export default function Navbar() {
   const { userId } = auth();
 
   return (
-    <div className="border-b sticky top-0 bg-background">
+    <div className="border-b sticky top-0 bg-background z-50">
       <header className="py-3 container flex justify-between items-center">
         <div>
           <Logo variants="link" />
