@@ -19,11 +19,11 @@ export default function Navbar() {
     <div className="border-b sticky top-0 bg-background z-50">
       <header className="w-full py-3 container flex justify-between items-center">
         <div className="w-full flex justify-start">
-          <Logo variants="link" className="md:inline-block hidden" />
-          <Menu className="inline-block md:hidden" />
+          <Logo variants="link" className="lg:inline-block hidden" />
+          <Menu className="inline-block lg:hidden" />
         </div>
 
-        <div className="w-full md:hidden flex justify-center">
+        <div className="w-full lg:hidden flex justify-center">
           <Logo variants="link" />
         </div>
 
