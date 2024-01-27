@@ -10,18 +10,24 @@ import { PersonIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { auth } from "@clerk/nextjs";
 import UserAvatar from "./user-avatar";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const { userId } = auth();
 
   return (
     <div className="border-b sticky top-0 bg-background z-50">
-      <header className="py-3 container flex justify-between items-center">
-        <div>
+      <header className="w-full py-3 container flex justify-between items-center">
+        <div className="w-full flex justify-start">
+          <Logo variants="link" className="md:inline-block hidden" />
+          <Menu className="inline-block md:hidden" />
+        </div>
+
+        <div className="w-full md:hidden flex justify-center">
           <Logo variants="link" />
         </div>
 
-        <div className="h-8 flex items-center gap-2">
+        <div className="w-full flex justify-end">
           {userId ? (
             <UserAvatar />
           ) : (
