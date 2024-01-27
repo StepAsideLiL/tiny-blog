@@ -37,16 +37,7 @@ export default async function HomePageSections() {
 
             return (
               <article key={blog.id} className="p-3 space-y-2">
-                <div>
-                  <h1 className="font-medium">{blog.title}</h1>
-                  <p className="font-light whitespace-pre-line">{blog.body}</p>
-                </div>
-
-                <Separator orientation="horizontal" />
-
                 <div className="flex gap-2 items-center">
-                  <span className="text-muted-foreground">by</span>
-
                   <Avatar>
                     <AvatarFallback>
                       {user.firstName ? user.firstName[0].toUpperCase() : ""}
@@ -58,6 +49,20 @@ export default async function HomePageSections() {
                     <h1 className="text-sm font-medium">{`${user.firstName} ${user.lastName}`}</h1>
                     <p className="text-sm text-muted-foreground">
                       {user.username}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-2 items-center">
+                  <div className="w-10"></div>
+
+                  <div className="flex-1">
+                    <Separator orientation="horizontal" />
+
+                    <h1 className="font-medium">{blog.title}</h1>
+
+                    <p className="font-light whitespace-pre-line">
+                      {blog.body}
                     </p>
                   </div>
                 </div>
