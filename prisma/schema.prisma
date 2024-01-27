@@ -10,24 +10,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Profile {
   id String @id @unique @default(cuid())
 
-  username String @unique
-  email    String @unique
-  name     String @default("")
-  bio      String @default("")
+  userId String @default("")
 
-  blogs Blog[]
+  bio String @default("")
 }
 
 model Blog {
   id String @id @unique @default(cuid())
 
-  userId String
-  User   User   @relation(fields: [userId], references: [id])
+  userId String @default("")
 
-  body String @default("")
+  title String @default("")
+  body  String @default("")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
