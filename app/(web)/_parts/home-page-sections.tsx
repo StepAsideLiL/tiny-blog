@@ -9,6 +9,7 @@ import { Separator } from "@/components/shadcn-ui/separator";
 import getBlogs from "@/lib/data/blogs";
 import { auth, clerkClient } from "@clerk/nextjs";
 import Link from "next/link";
+import { formatDistanceToNow } from "date-fns";
 
 export default async function HomePageSections() {
   const { userId } = auth();
@@ -34,6 +35,7 @@ export default async function HomePageSections() {
         {blogs.length !== 0 ? (
           blogs.map(async (blog) => {
             const user = await clerkClient.users.getUser(blog.userId);
+            const posted = formatDistanceToNow(new Date(blog.createdAt));
 
             return (
               <article key={blog.id} className="p-3 space-y-2">
@@ -48,7 +50,7 @@ export default async function HomePageSections() {
                   <div>
                     <h1 className="text-sm font-medium">{`${user.firstName} ${user.lastName}`}</h1>
                     <p className="text-sm text-muted-foreground">
-                      {user.username}
+                      {user.username} &bull; {posted}
                     </p>
                   </div>
                 </div>
