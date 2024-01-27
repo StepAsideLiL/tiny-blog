@@ -1,12 +1,19 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
-export default function Logo({ variants = "" }: { variants?: "" | "link" }) {
+export default function Logo({
+  variants = "",
+  className = "",
+}: {
+  variants?: "" | "link";
+  className?: string;
+}) {
   if (variants === "link") {
     return (
-      <Link href={"/"}>
+      <Link href={"/"} className={cn(className)}>
         <Icon />
       </Link>
     );
@@ -15,7 +22,7 @@ export default function Logo({ variants = "" }: { variants?: "" | "link" }) {
   return <Icon />;
 }
 
-function Icon() {
+function Icon({ className = "" }: { className?: string }) {
   const { theme } = useTheme();
 
   return (
@@ -24,6 +31,7 @@ function Icon() {
       height="48"
       viewBox="0 0 48 48"
       xmlns="http://www.w3.org/2000/svg"
+      className={cn(className)}
     >
       <g
         fill="none"
