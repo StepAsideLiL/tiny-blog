@@ -19,15 +19,17 @@ import postBlog from "@/lib/actions";
 const formSchema = z.object({
   title: z
     .string()
+    .trim()
     .min(1, { message: "Can not post blog with empty title." })
     .max(30, { message: "Can not post blog title more than 50 characters." }),
   body: z
     .string()
+    .trim()
     .min(1, { message: "Can not post empty blog." })
     .max(300, { message: "Can not post blog with more than 500 characters." }),
 });
 
-export default function BlogForm() {
+export default function BlogForm({ userId }: { userId: string }) {
   const [titleCount, setTitleCount] = useState(50);
   const [bodyCount, setBodyCount] = useState(500);
 
@@ -41,10 +43,12 @@ export default function BlogForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     const formData = {
-      userId: "l",
+      userId: userId,
       ...values,
     };
+
     postBlog(formData);
+    form.reset();
   }
 
   return (
