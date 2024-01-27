@@ -48,7 +48,11 @@ export default async function HomePageSections() {
                   </Avatar>
 
                   <div>
-                    <h1 className="text-sm font-medium">{`${user.firstName} ${user.lastName}`}</h1>
+                    <h1 className="text-sm font-medium">
+                      {user.firstName
+                        ? `${user.firstName} ${user.lastName}`
+                        : `${user.username}`}
+                    </h1>
                     <p className="text-sm text-muted-foreground">
                       {user.username} &bull; {posted}
                     </p>
