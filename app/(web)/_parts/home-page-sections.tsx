@@ -10,33 +10,6 @@ import getBlogs from "@/lib/data/blogs";
 import { auth, clerkClient } from "@clerk/nextjs";
 import Link from "next/link";
 
-const dummyBlogs = [
-  {
-    title: "hello world",
-    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. U doloribus consequuntur natu tempora voluptatibus rem in voluptas. Cumque porro ipsa voluptatibus doloremque atque nobis, dolore, ipsam nam velit nemo tempore doloribus adipisci aliquam officia impedit culpa. Fuga animi error alias numquam corrupti harum assumenda, neque quod ducimus temporibus",
-    username: "example",
-    name: "Example Name",
-    imageUrl:
-      "https://res.cloudinary.com/dni3ahk5v/image/upload/v1703049972/qvu0kxpacsvpfxrxfgqo.jpg",
-  },
-  {
-    title: "hello world",
-    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. U doloribus consequuntur natu tempora voluptatibus rem in voluptas. Cumque porro ipsa voluptatibus doloremque atque nobis, dolore, ipsam nam velit nemo tempore doloribus adipisci aliquam officia impedit culpa. Fuga animi error alias numquam corrupti harum assumenda, neque quod ducimus temporibus",
-    username: "example",
-    name: "Example Name",
-    imageUrl:
-      "https://res.cloudinary.com/dni3ahk5v/image/upload/v1703049972/qvu0kxpacsvpfxrxfgqo.jpg",
-  },
-  {
-    title: "hello world",
-    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. U doloribus consequuntur natu tempora voluptatibus rem in voluptas. Cumque porro ipsa voluptatibus doloremque atque nobis, dolore, ipsam nam velit nemo tempore doloribus adipisci aliquam officia impedit culpa. Fuga animi error alias numquam corrupti harum assumenda, neque quod ducimus temporibus",
-    username: "example",
-    name: "Example Name",
-    imageUrl:
-      "https://res.cloudinary.com/dni3ahk5v/image/upload/v1703049972/qvu0kxpacsvpfxrxfgqo.jpg",
-  },
-];
-
 export default async function HomePageSections() {
   const { userId } = auth();
   const blogs = await getBlogs();
