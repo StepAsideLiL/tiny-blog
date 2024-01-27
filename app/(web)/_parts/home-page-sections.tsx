@@ -4,9 +4,11 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/shadcn-ui/avatar";
+import { Button } from "@/components/shadcn-ui/button";
 import { Separator } from "@/components/shadcn-ui/separator";
 import getBlogs from "@/lib/data/blogs";
 import { auth, clerkClient } from "@clerk/nextjs";
+import Link from "next/link";
 
 const dummyBlogs = [
   {
@@ -46,7 +48,15 @@ export default async function HomePageSections() {
 
       {/* Tyni Blog List */}
       <section className="md:col-span-6 col-span-8 border-x border-muted divide-y border-b">
-        {userId && <BlogForm userId={userId} />}
+        {userId ? (
+          <BlogForm userId={userId} />
+        ) : (
+          <div className="p-2 text-center">
+            <Button variant={"outline"} asChild>
+              <Link href={"/sign-up"}>Sign up to write a blog</Link>
+            </Button>
+          </div>
+        )}
 
         {blogs.length !== 0 ? (
           blogs.map(async (blog) => {
@@ -55,7 +65,7 @@ export default async function HomePageSections() {
             return (
               <article key={blog.id} className="p-3 space-y-2">
                 <div>
-                  <h1 className="text-lg">{blog.title}</h1>
+                  <h1 className="font-medium">{blog.title}</h1>
                   <p className="font-light whitespace-pre-line">{blog.body}</p>
                 </div>
 
