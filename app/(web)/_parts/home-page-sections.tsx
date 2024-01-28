@@ -9,12 +9,18 @@ import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import { Suspense } from "react";
 import { MoreVertical } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default async function HomePageSections() {
   const blogs = await getBlogs();
 
   return (
-    <section className="w-full max-w-lg md:w-[512px] mx-auto border-b divide-y">
+    <section
+      className={cn(
+        "w-full max-w-lg md:w-[512px] mx-auto border-b divide-y",
+        blogs.length === 0 && "border-b-0"
+      )}
+    >
       {blogs.length !== 0 ? (
         blogs.map((blog) => (
           <Suspense key={blog.id}>
