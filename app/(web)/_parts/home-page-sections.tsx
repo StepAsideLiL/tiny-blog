@@ -3,7 +3,7 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/shadcn-ui/avatar";
-import getBlogs from "@/lib/data/blogs";
+import { getBlogs } from "@/lib/data/blogs";
 import { clerkClient } from "@clerk/nextjs";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
