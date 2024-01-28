@@ -3,6 +3,7 @@ import "./globals.css";
 import { inter } from "@/lib/fonts";
 import Providers from "@/components/providers/providers";
 import Navbar from "@/components/templates/navbar";
+import Menus from "@/components/templates/menus";
 
 export const metadata: Metadata = {
   title: {
@@ -24,6 +25,12 @@ export default function RootLayout({
           <Navbar />
 
           {children}
+
+          <div className="pt-14 lg:p-0">
+            <div className="w-full fixed bottom-0 bg-background">
+              <Menus className="container flex lg:hidden justify-between" />
+            </div>
+          </div>
         </Providers>
       </body>
     </html>
