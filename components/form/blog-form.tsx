@@ -30,8 +30,8 @@ const formSchema = z.object({
 });
 
 export default function BlogForm({ userId }: { userId: string }) {
-  const [titleCount, setTitleCount] = useState(50);
-  const [bodyCount, setBodyCount] = useState(500);
+  const [titleCount, setTitleCount] = useState(0);
+  const [bodyCount, setBodyCount] = useState(0);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -48,6 +48,8 @@ export default function BlogForm({ userId }: { userId: string }) {
     };
 
     postBlog(formData);
+    setTitleCount(0);
+    setBodyCount(0);
     form.reset();
   }
 
@@ -66,7 +68,7 @@ export default function BlogForm({ userId }: { userId: string }) {
                   autoComplete="off"
                   className="p-0 flex-1 focus-visible:ring-0 border-none active:border-none focus-visible:ring-offset-0"
                   onChangeCapture={(e) => {
-                    setTitleCount(50 - e.currentTarget.value.length);
+                    setTitleCount(e.currentTarget.value.length);
                   }}
                 />
               </FormControl>
@@ -91,7 +93,7 @@ export default function BlogForm({ userId }: { userId: string }) {
                   autoComplete="off"
                   className="p-0 focus-visible:ring-0 border-none active:border-none focus-visible:ring-offset-0"
                   onChangeCapture={(e) => {
-                    setBodyCount(500 - e.currentTarget.value.length);
+                    setBodyCount(e.currentTarget.value.length);
                   }}
                 />
               </FormControl>
