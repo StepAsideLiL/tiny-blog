@@ -32,6 +32,7 @@ const formSchema = z.object({
 export default function BlogForm({ userId }: { userId: string }) {
   const [titleCount, setTitleCount] = useState(0);
   const [bodyCount, setBodyCount] = useState(0);
+  const [disable, setDisable] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,10 +48,8 @@ export default function BlogForm({ userId }: { userId: string }) {
       ...values,
     };
 
+    setDisable(true);
     postBlog(formData);
-    setTitleCount(0);
-    setBodyCount(0);
-    form.reset();
   }
 
   return (
@@ -106,7 +105,7 @@ export default function BlogForm({ userId }: { userId: string }) {
         />
 
         <div className="flex justify-end">
-          <Button size={"sm"} type="submit">
+          <Button size={"sm"} type="submit" disabled={disable}>
             Post
           </Button>
         </div>
