@@ -30,13 +30,13 @@ export default function Menus({ className = "" }: { className?: string }) {
   const pathname = usePathname();
 
   return (
-    <nav className={cn("flex gap-3", className)}>
+    <nav className={cn("flex gap-5", className)}>
       {menuList.map((list) => (
         <Link
           key={list.href}
           href={list.href}
           className={cn(
-            "inline-block p-3 hover:bg-muted rounded",
+            "inline-block px-6 py-3 hover:bg-muted rounded",
             pathname === list.href && "bg-muted"
           )}
         >
