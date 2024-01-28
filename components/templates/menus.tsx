@@ -9,20 +9,20 @@ const menuList = [
   {
     title: "Home",
     href: "/",
-    icon: <Home strokeWidth="0.5px" size={"36px"} />,
-    activeIcon: <Home strokeWidth="3px" size={"36px"} />,
+    icon: <Home strokeWidth="0.5px" size={"30px"} />,
+    activeIcon: <Home strokeWidth="3px" size={"30px"} />,
   },
   {
     title: "Write Blog",
     href: "/add",
-    icon: <NotebookPen strokeWidth="0.5px" size={"36px"} />,
-    activeIcon: <NotebookPen strokeWidth="3px" size={"36px"} />,
+    icon: <NotebookPen strokeWidth="0.5px" size={"30px"} />,
+    activeIcon: <NotebookPen strokeWidth="3px" size={"30px"} />,
   },
   {
     title: "Profile",
     href: "/profile",
-    icon: <User strokeWidth="0.5px" size={"36px"} />,
-    activeIcon: <User strokeWidth="3px" size={"36px"} />,
+    icon: <User strokeWidth="0.5px" size={"30px"} />,
+    activeIcon: <User strokeWidth="3px" size={"30px"} />,
   },
 ];
 
