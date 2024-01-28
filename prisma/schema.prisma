@@ -21,7 +21,8 @@ model Profile {
 model Blog {
   id String @id @unique @default(cuid())
 
-  userId String @default("")
+  userId   String @default("")
+  username String @default("")
 
   title String @default("")
   body  String @default("")
