@@ -11,6 +11,7 @@ import Link from "next/link";
 import { auth } from "@clerk/nextjs";
 import UserAvatar from "./user-avatar";
 import { Menu } from "lucide-react";
+import Menus from "./menus";
 
 export default function Navbar() {
   const { userId } = auth();
@@ -25,8 +26,9 @@ export default function Navbar() {
         </div>
 
         {/* 2nd section */}
-        <div className="w-full lg:hidden flex justify-center">
-          <Logo variants="link" />
+        <div className="w-full flex justify-center">
+          <Logo variants="link" className="inline-block lg:hidden" />
+          <Menus className="lg:block hidden" />
         </div>
 
         {/* 3rd section */}
