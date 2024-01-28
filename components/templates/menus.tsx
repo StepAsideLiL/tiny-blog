@@ -1,14 +1,18 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useUser } from "@clerk/nextjs";
 import { Home, NotebookPen, User } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Menus({ className = "" }: { className?: string }) {
+export default function Menus({
+  username,
+  className = "",
+}: {
+  username: string | null | undefined;
+  className?: string;
+}) {
   const pathname = usePathname();
-  const { user } = useUser();
 
   const menuList = [
     {
@@ -25,7 +29,7 @@ export default function Menus({ className = "" }: { className?: string }) {
     },
     {
       title: "Profile",
-      href: `/${user?.username}`,
+      href: username ? `/u/${username}` : "/u",
       icon: <User strokeWidth="0.5px" size={"30px"} />,
       activeIcon: <User strokeWidth="3px" size={"30px"} />,
     },
