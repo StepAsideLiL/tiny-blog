@@ -28,7 +28,7 @@ export default function Navbar() {
         {/* 2nd section */}
         <div className="w-full flex justify-center">
           <Logo variants="link" className="inline-block lg:hidden" />
-          <Menus className="lg:block hidden" />
+          <Menus className="lg:flex hidden" />
         </div>
 
         {/* 3rd section */}
