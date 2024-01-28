@@ -21,8 +21,8 @@ export default async function HomePageSections() {
       <section className="col-span-3 hidden lg:block">Profile</section>
 
       {/* Tyni Blog List */}
-      <section className="max-w-lg w-[512px] lg:max-w-5xl lg:w-full lg:col-span-6 col-span-12 border-x border-muted divide-y border-b">
-        <section>
+      <section className="max-w-lg w-[512px] lg:max-w-5xl lg:w-full lg:col-span-6 col-span-12 border-x border-muted border-b">
+        <section className="divide-y">
           {userId ? (
             <BlogForm userId={userId} />
           ) : (
@@ -52,7 +52,7 @@ export default async function HomePageSections() {
                       <h1 className="text-sm font-medium">
                         {user.firstName
                           ? `${user.firstName} ${user.lastName}`
-                          : `${user.username}`}
+                          : "(no name)"}
                       </h1>
                       <p className="text-sm text-muted-foreground">
                         {user.username} &bull; {posted}
