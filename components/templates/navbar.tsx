@@ -18,15 +18,18 @@ export default function Navbar() {
   return (
     <div className="border-b sticky top-0 bg-background z-50">
       <header className="w-full py-3 container flex justify-between items-center">
+        {/* 1st section */}
         <div className="w-full flex justify-start">
           <Logo variants="link" className="lg:inline-block hidden" />
           <Menu className="inline-block lg:hidden" />
         </div>
 
+        {/* 2nd section */}
         <div className="w-full lg:hidden flex justify-center">
           <Logo variants="link" />
         </div>
 
+        {/* 3rd section */}
         <div className="w-full flex justify-end">
           {userId ? (
             <UserAvatar />
