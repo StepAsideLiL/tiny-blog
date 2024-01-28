@@ -21,12 +21,12 @@ const formSchema = z.object({
     .string()
     .trim()
     .min(1, { message: "Can not post blog with empty title." })
-    .max(30, { message: "Can not post blog title more than 50 characters." }),
+    .max(50, { message: "Can not post blog title more than 50 characters." }),
   body: z
     .string()
     .trim()
     .min(1, { message: "Can not post empty blog." })
-    .max(300, { message: "Can not post blog with more than 500 characters." }),
+    .max(500, { message: "Can not post blog with more than 500 characters." }),
 });
 
 export default function BlogForm({ userId }: { userId: string }) {
