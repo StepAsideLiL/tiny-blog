@@ -1,33 +1,20 @@
-import BlogForm from "@/components/form/blog-form";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@/components/shadcn-ui/avatar";
-import { Button } from "@/components/shadcn-ui/button";
 import getBlogs from "@/lib/data/blogs";
-import { auth, clerkClient } from "@clerk/nextjs";
+import { clerkClient } from "@clerk/nextjs";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import { Suspense } from "react";
 import { MoreVertical } from "lucide-react";
 
 export default async function HomePageSections() {
-  const { userId } = auth();
   const blogs = await getBlogs();
 
   return (
     <section className="w-full max-w-lg md:w-[512px] mx-auto border-b divide-y">
-      {userId ? (
-        <BlogForm userId={userId} />
-      ) : (
-        <div className="p-2 text-center">
-          <Button variant={"outline"} asChild>
-            <Link href={"/sign-up"}>Sign up to write a blog</Link>
-          </Button>
-        </div>
-      )}
-
       {blogs.length !== 0 ? (
         blogs.map((blog) => (
           <Suspense key={blog.id}>
