@@ -9,7 +9,7 @@ export default function UsernamePage({
   params: { userId: string };
 }) {
   return (
-    <main className="container">
+    <main className="container w-full max-w-lg md:w-[512px] mx-auto">
       <Suspense fallback={<UserProfileFallback />}>
         <UserProfile userId={params.userId} />
       </Suspense>

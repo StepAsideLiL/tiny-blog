@@ -16,10 +16,7 @@ export default async function UserBlogs({ userId }: { userId: string }) {
 
   return (
     <section
-      className={cn(
-        "w-full max-w-lg md:w-[512px] mx-auto border-b divide-y",
-        blogs.length === 0 && "border-b-0"
-      )}
+      className={cn("border-b divide-y", blogs.length === 0 && "border-b-0")}
     >
       {blogs.length !== 0 ? (
         blogs.map((blog) => (
