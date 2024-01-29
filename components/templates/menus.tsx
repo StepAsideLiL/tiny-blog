@@ -6,10 +6,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Menus({
-  username,
+  userId,
   className = "",
 }: {
-  username: string | null | undefined;
+  userId: string | null | undefined;
   className?: string;
 }) {
   const pathname = usePathname();
@@ -29,7 +29,7 @@ export default function Menus({
     },
     {
       title: "Profile",
-      href: username ? `/u/${username}` : "/u",
+      href: userId ? `/u/${userId}` : "/u",
       icon: <User strokeWidth="0.5px" size={"30px"} />,
       activeIcon: <User strokeWidth="3px" size={"30px"} />,
     },

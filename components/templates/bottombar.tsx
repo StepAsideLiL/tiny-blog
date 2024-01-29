@@ -1,13 +1,13 @@
-import { currentUser } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs";
 import Menus from "./menus";
 
 export default async function Bottombar() {
-  const user = await currentUser();
+  const { userId } = auth();
 
   return (
     <Menus
       className="container flex lg:hidden justify-between"
-      username={user?.username}
+      userId={userId}
     />
   );
 }

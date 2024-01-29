@@ -8,14 +8,13 @@ import {
 } from "@/components/shadcn-ui/dropdown-menu";
 import { PersonIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { auth, currentUser } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs";
 import UserAvatar from "./user-avatar";
 import { Menu } from "lucide-react";
 import Menus from "./menus";
 
 export default async function Navbar() {
   const { userId } = auth();
-  const user = await currentUser();
 
   return (
     <div className="border-b sticky top-0 bg-background z-50">
@@ -29,7 +28,7 @@ export default async function Navbar() {
         {/* 2nd section */}
         <div className="w-full flex justify-center">
           <Logo variants="link" className="inline-block lg:hidden" />
-          <Menus className="lg:flex hidden" username={user?.username} />
+          <Menus className="lg:flex hidden" userId={userId} />
         </div>
 
         {/* 3rd section */}
