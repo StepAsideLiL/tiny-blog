@@ -17,11 +17,11 @@ export async function getBlogs() {
 }
 
 // Get blogs by username ordered by descending created date.
-export async function getBlogsByUsername(username: string) {
+export async function getBlogsByUserId(userId: string) {
   try {
     const blogs = await prisma.blog.findMany({
       where: {
-        username: username,
+        userId: userId,
       },
       orderBy: {
         createdAt: "desc",
