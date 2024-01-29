@@ -1,4 +1,4 @@
-import { UserProfile } from "@clerk/nextjs";
+import { UserProfile, auth } from "@clerk/nextjs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,9 +6,11 @@ export const metadata: Metadata = {
 };
 
 export default function ProfilePage() {
+  const { userId } = auth();
+
   return (
     <main className="flex justify-center items-center">
-      <UserProfile path="/profile" routing="path" />
+      <UserProfile path={`/u/${userId}/edit`} routing="path" />
     </main>
   );
 }

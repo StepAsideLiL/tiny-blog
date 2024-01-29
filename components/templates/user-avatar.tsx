@@ -1,16 +1,14 @@
-import { UserButton } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
+import { UserButton, auth } from "@clerk/nextjs";
 
 export default function UserAvatar() {
+  const { userId } = auth();
+
   return (
     <>
       <UserButton
         afterSignOutUrl="/"
-        appearance={{
-          baseTheme: dark,
-        }}
         userProfileMode="navigation"
-        userProfileUrl={`/profile`}
+        userProfileUrl={`/u/${userId}/edit`}
       />
     </>
   );
