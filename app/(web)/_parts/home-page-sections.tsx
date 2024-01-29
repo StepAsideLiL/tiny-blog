@@ -59,7 +59,7 @@ async function BlogArticle({
   return (
     <article className="p-3 space-y-2">
       <div className="flex gap-2 items-center">
-        <Link href={`/u/${username}`}>
+        <Link href={`/u/${userId}`}>
           <Avatar>
             <AvatarFallback>
               {firstName ? firstName[0].toUpperCase() : "U"}
@@ -70,12 +70,12 @@ async function BlogArticle({
 
         <div className="flex-1">
           <h1 className="font-semibold">
-            <Link href={`/u/${username}`} className="hover:underline">
+            <Link href={`/u/${userId}`} className="hover:underline">
               {firstName ? `${firstName} ${lastName}` : `${username}`}
             </Link>
           </h1>
           <p className="text-sm text-muted-foreground">
-            <Link href={`/u/${username}`} className="hover:underline">
+            <Link href={`/u/${userId}`} className="hover:underline">
               {username}
             </Link>{" "}
             &bull; {posted}
